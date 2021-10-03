@@ -24,15 +24,15 @@ export default function App() {
       callAPI()
     }, []);
 
-    // console.log(`${(state as any)}`)
-    // console.log('-------------------------------------')
+    // console.log(`${(state as any).data[0].description}`)
+    console.log('-------------------------------------')
     // console.log(state.data[0])
     // console.log('oi')
 
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
-      {state !== undefined ? <Text>{`${(state as any).data[0].description}`}</Text> : <Text>Oi</Text>}
+      {/* {state !== undefined ? <Text>{`${(state as any).data[0].description}`}</Text> : <Text>Oi</Text>} */}
       {/* <Text>getAllProducts.</Text> */}
       <StatusBar style="auto" />
     </View>
