@@ -3,71 +3,30 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Image, FlatList, SafeAreaView, Platform } from 'react-native';
 import { getAllProducts } from './src/services/products';
 import Header from './src/components/Header';
+import ListProducts from './src/components/ListProducts';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Loader from './src/components/Loader/loader';
+import Home from './Home';
+import ProductPage from './src/components/ProductPage';
 
-interface Props {
-  title: any;
-  item: any;
-}
+import { Provider } from 'react-redux';
+import store from './src/services/Redux/store';
+
 
 export default function App() {
 
-  const [state, setState] = useState({});
-  const [load, setLoad] = useState(true)
-
-  async function callAPI() {
-    const teste = await getAllProducts()
-    setState(teste)
-    setLoad(false)
-    console.log('--- RUNNING APPLICATION ---')
-    // console.log(state.data)
-    }
-
-    useEffect(() => {
-      callAPI()
-    }, []);
-
-    const renderItem = ({ item }:{item:any}) => (
-      // <Item title={item.title} />
-      <View>
-        <Text>{item.title}</Text>
-      </View>
-    );
+  const Stack = createNativeStackNavigator();
 
   return (
-      <View>
-        <Header />
-        {/* <View>
-          <Text>Oi</Text>
-        </View> */}
-      </View>
-      //  <SafeAreaView>
-      //   {load == true ?
-      //     <Loader loading={load}/>
-      //     :
-      //     <View>
-      //       <FlatList
-      //         data={state.data}
-      //         renderItem={renderItem}
-      //         keyExtractor={(item) => item.id.toString()}
-      //       />
-
-      //       <Text>{`${(state as any).data[0].title}`}</Text>
-      //       <Image source={{uri:`${(state as any).data[0].image}`}}
-      //       style={{width: 400, height: 400}}
-      //       resizeMode={'center'}/>
-      //       <Text>{`${(state as any).data[0].description}`}</Text>
-
-      //     </View>
-      //   }
-      // </SafeAreaView> 
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="Home" >
+          <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='ProductPage' component={ProductPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+    );
+  }
