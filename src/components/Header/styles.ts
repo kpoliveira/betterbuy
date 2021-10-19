@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
         paddingTop: hp('5%'),
     },
     column:{
-        flexDirection: 'column'
+        flexDirection: 'column',
+        zIndex: 1 
     },
     textHeader:{
         paddingTop: hp('3%'),

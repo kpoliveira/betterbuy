@@ -5,11 +5,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { baseProps } from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import styles from './styles';
+import {connect} from 'react-redux'
+
 
 
 function ListProducts (props: any){
 
     const navigation = useNavigation();
+
 
     const renderItem = ({item}:{item:any}) => (
         <View style={styles.viewItem}>

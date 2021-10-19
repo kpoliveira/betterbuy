@@ -7,7 +7,8 @@ import { useFonts, Poppins_100Thin } from '@expo-google-fonts/poppins';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-
+import { connect}  from 'react-redux'
+import { baseProps } from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
 // import { Container } from './styles';
 
 interface Props{
@@ -16,8 +17,7 @@ interface Props{
 
 function RenderHeader(type: any){
     const navigation = useNavigation();
-
-    switch(type){
+    switch(type.type){
         case 'home':
             return(
                 <SafeAreaView>
@@ -30,7 +30,12 @@ function RenderHeader(type: any){
                         </View>
                         <View style={{justifyContent: 'center'}}>
                             <TouchableOpacity onPress={() => console.log('pressionou')}>
-                                <Entypo name="shopping-cart" size={24} color="white" />
+                                <View style={{position: 'absolute', height: 15, width: 15, borderRadius: 15, backgroundColor: 'red', right: 5, bottom: 20, alignItems: 'center', justifyContent: 'center', zIndex: 5000}}>
+                                    <Text style={{color: 'white', fontWeight: 'bold'}}>
+                                        {type.cartItems.length}
+                                    </Text>
+                                </View>
+                                <Entypo name="shopping-cart" size={34} color="white" />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -48,7 +53,12 @@ function RenderHeader(type: any){
                         </View>
                         <View style={{justifyContent: 'center'}}>
                             <TouchableOpacity onPress={() => console.log('pressionou')}>
-                                <Entypo name="shopping-cart" size={24} color="white" />
+                                <View style={{position: 'absolute', height: 15, width: 15, borderRadius: 15, backgroundColor: 'red', right: 5, bottom: 20, alignItems: 'center', justifyContent: 'center', zIndex: 5000}}>
+                                    <Text style={{color: 'white', fontWeight: 'bold'}}>
+                                        {type.cartItems.length}
+                                    </Text>
+                                </View>
+                                <Entypo name="shopping-cart" size={34} color="white" />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -59,9 +69,15 @@ function RenderHeader(type: any){
     }
 }
 
+const mapStateToProps = (state: any) => {
+    return {
+        cartItems: state
+    }
+}
+
 const Header = ( props: Props ) => {
     console.log(props)
-    return RenderHeader(props.type);
+    return RenderHeader(props);
 };
 
-export default Header;
+export default connect(mapStateToProps)(Header);
