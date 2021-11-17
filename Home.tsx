@@ -43,39 +43,6 @@ export default function Home() {
     );
   }
 
-
-
-
-
-      //  <View>
-      //     <Text>{state.data[0].title}</Text>
-      //     <Image source={{uri:state.data[0].image}}
-      //     style={{width: 200, height: 200}}
-      //     resizeMode={'center'}/>
-      //     <Text>{state.data[0].description}</Text>
-      // </View> 
-
-      //  <SafeAreaView>
-      //   {load == true ?
-      //     <Loader loading={load}/>
-      //     :
-      //     <View>
-      //       <FlatList
-      //         data={state.data}
-      //         renderItem={renderItem}
-      //         keyExtractor={(item) => item.id.toString()}
-      //       />
-
-      //       <Text>{`${(state as any).data[0].title}`}</Text>
-      //       <Image source={{uri:`${(state as any).data[0].image}`}}
-      //       style={{width: 400, height: 400}}
-      //       resizeMode={'center'}/>
-      //       <Text>{`${(state as any).data[0].description}`}</Text>
-
-      //     </View>
-      //   }
-      // </SafeAreaView> 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
