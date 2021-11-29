@@ -29,7 +29,7 @@ function RenderHeader(type: any){
                             <Text style={styles.textHeader}>Seja bem-vindo !</Text>
                         </View>
                         <View style={{justifyContent: 'center'}}>
-                            <TouchableOpacity onPress={() => console.log('pressionou')}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Checkout')}>
                                 <View style={{position: 'absolute', height: 15, width: 15, borderRadius: 15, backgroundColor: 'red', right: 5, bottom: 20, alignItems: 'center', justifyContent: 'center', zIndex: 5000}}>
                                     <Text style={{color: 'white', fontWeight: 'bold'}}>
                                         {type.cartItems.length}
@@ -52,7 +52,7 @@ function RenderHeader(type: any){
                             <Text style={styles.textHeader}>Seja bem-vindo !</Text>
                         </View>
                         <View style={{justifyContent: 'center'}}>
-                            <TouchableOpacity onPress={() => console.log('pressionou')}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Checkout')}>
                                 <View style={{position: 'absolute', height: 15, width: 15, borderRadius: 15, backgroundColor: 'red', right: 5, bottom: 20, alignItems: 'center', justifyContent: 'center', zIndex: 5000}}>
                                     <Text style={{color: 'white', fontWeight: 'bold'}}>
                                         {type.cartItems.length}

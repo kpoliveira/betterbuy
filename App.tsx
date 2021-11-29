@@ -13,6 +13,7 @@ import ProductPage from './src/components/ProductPage';
 
 import { Provider } from 'react-redux';
 import store from './src/services/Redux/store';
+import Checkout from './src/Checkout';
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="Home" >
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='ProductPage' component={ProductPage} />
+          <Stack.Screen name='Checkout' component={Checkout} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

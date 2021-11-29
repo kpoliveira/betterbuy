@@ -18,13 +18,25 @@ const styles = StyleSheet.create({
     titleTextDetails:{
         fontSize: hp('2%'),
     },
+    textAddCart:{
+        borderWidth: 1,
+        borderColor: 'blue',
+        borderRadius: 8,
+        paddingVertical: 16,
+        paddingHorizontal: 24,
+        backgroundColor: '#18206F',
+        color: 'white',
+        fontWeight: 'bold'
+    },
     descriptionTextDetails:{
         marginTop: hp('1%'),
         fontSize: hp('1.5%'),
         marginBottom: hp('1%'),
     },
+    secondSeasonView:{
+        backgroundColor: 'white',
+    },
     secondView:{
-        
         paddingHorizontal: hp('3%'),
         marginTop: hp('3%'),
         alignItems: 'center'

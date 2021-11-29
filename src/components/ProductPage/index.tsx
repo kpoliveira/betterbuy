@@ -7,20 +7,22 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // import { Container } from './styles';
 import styles from './styles';
+import ListProducts from '../ListProducts/index';
 
 const mapDispatchToProps = (dispatch: any) => {
   return{
-      addItemToCart:(product: any) => dispatch({type: 'ADD_TO_CART', payload: product})
+      addItemToCart:(product: any) => dispatch({ type: 'ADD_TO_CART', payload: product })
   }
 }
 
-const ProductPage: React.FC = (props: any) => {
+function ProductPage(props: any){
     //QUALQUER ERRO REMOVER ANY DA PROP
     const data = props.route.params.data
-
-    console.log(data)
+    console.log('--------------------------')
+    console.log(props.route.params.data)
+    // console.log(props)
   return (
-      <View>
+      <View style={{backgroundColor: 'white'}}>
           <Header type={'productpage'} />
           <View style={styles.firstView}>
               <View style={{alignItems: 'center'}}>
@@ -31,11 +33,13 @@ const ProductPage: React.FC = (props: any) => {
             <Text style={styles.titleTextDetails}>{data.title}</Text>
             <Text style={styles.descriptionTextDetails}>{data.description}</Text>
           </View>
-          <TouchableOpacity onPress={props.addItemToCart}>
-            <View style={styles.secondView}>
-              <Text style={styles.titleTextDetails}>Adicionar ao carrinho</Text>
-            </View>
-          </TouchableOpacity>
+          <View style={styles.secondSeasonView}>
+            <TouchableOpacity onPress={data.addItemToCart}>
+              <View style={styles.secondView}>
+                <Text style={styles.textAddCart}>Adicionar ao carrinho</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
       </View>
   );
 }

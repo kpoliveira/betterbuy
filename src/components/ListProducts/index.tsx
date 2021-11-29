@@ -12,15 +12,14 @@ import {connect} from 'react-redux'
 function ListProducts (props: any){
 
     const navigation = useNavigation();
-
+    // console.log(props.data.data)
 
     const renderItem = ({item}:{item:any}) => (
         <View style={styles.viewItem}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={() => navigation.navigate('ProductPage', {data: item})}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={() => navigation.navigate('ProductPage', {data: item, all: props.data.data})}>
                 <Image source={{uri:item.image}}
                 style={styles.imageDetails}
                 resizeMode={'center'}/>
-                {/* <Text>{item.title}</Text> */}
                 <Text style={{textAlign: 'center'}}>{item.title}</Text>
             </TouchableOpacity>
         </View>
@@ -31,7 +30,7 @@ function ListProducts (props: any){
             <FlatList
             data={props.data.data}
             renderItem={renderItem}
-            keyExtractor={item => item.id}
+            // keyExtractor={item => item.id}
             horizontal={true} />
         </View>
     );
