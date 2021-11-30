@@ -9,6 +9,24 @@ const styles = StyleSheet.create({
     },
     textCheckout:{
         fontSize: hp('3%')
+    },
+    quantityText:{
+        marginTop: hp('5%')
+    },
+    input: {
+        height: hp('4%'),
+        width: wp('50%'),
+        borderWidth: 1,
+        borderRadius: 16,
+        padding: 10,
+        borderColor: '#18206F'
+    },
+    inputCupom:{
+        borderWidth: 1,
+        borderRadius: 16,
+        borderColor: '#18206F',
+        width: wp('15%'),
+        alignItems: 'center'
     }
 })
 

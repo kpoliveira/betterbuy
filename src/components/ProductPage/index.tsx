@@ -34,7 +34,7 @@ function ProductPage(props: any){
             <Text style={styles.descriptionTextDetails}>{data.description}</Text>
           </View>
           <View style={styles.secondSeasonView}>
-            <TouchableOpacity onPress={data.addItemToCart}>
+            <TouchableOpacity onPress={props.addItemToCart}>
               <View style={styles.secondView}>
                 <Text style={styles.textAddCart}>Adicionar ao carrinho</Text>
               </View>
