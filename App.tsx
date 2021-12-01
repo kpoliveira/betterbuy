@@ -14,6 +14,7 @@ import ProductPage from './src/components/ProductPage';
 import { Provider } from 'react-redux';
 import store from './src/services/Redux/store';
 import Checkout from './src/Checkout';
+import Approved from './src/components/Approved';
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='ProductPage' component={ProductPage} />
           <Stack.Screen name='Checkout' component={Checkout} />
+          <Stack.Screen name='Approved' component={Approved} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
